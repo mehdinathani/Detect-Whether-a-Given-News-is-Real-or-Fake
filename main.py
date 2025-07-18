@@ -1,4 +1,6 @@
 import pandas as pd
+import joblib
+
 
 # Load data
 fake_df = pd.read_csv("Fake.csv")
@@ -124,4 +126,10 @@ print(f"✅ Precision: {precision:.4f}")
 print(f"✅ Recall:    {recall:.4f}")
 print(f"✅ F1 Score:  {f1:.4f}")
 print(f"✅ ROC-AUC:   {roc_auc:.4f}")
+
+# Save model and vectorizer for reuse in test.py
+joblib.dump(model, "logreg_model.pkl")
+joblib.dump(tfidf, "tfidf_vectorizer.pkl")
+
+print("✅ Model and vectorizer saved for testing.")
 
