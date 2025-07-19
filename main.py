@@ -1,5 +1,6 @@
 import pandas as pd
 import joblib
+from sklearn.linear_model import LogisticRegression
 
 
 # Load data
@@ -127,8 +128,11 @@ print(f"✅ Recall:    {recall:.4f}")
 print(f"✅ F1 Score:  {f1:.4f}")
 print(f"✅ ROC-AUC:   {roc_auc:.4f}")
 
+
+import sklearn.linear_model
+
 # Save model and vectorizer for reuse in test.py
-joblib.dump(model, "logreg_model.pkl")
+joblib.dump(model, "logreg_model.pkl", compress=3)
 joblib.dump(tfidf, "tfidf_vectorizer.pkl")
 
 print("✅ Model and vectorizer saved for testing.")
